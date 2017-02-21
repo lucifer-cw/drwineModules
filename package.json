@@ -1,0 +1,15 @@
+{
+  "name": "react-native-drwine",
+  "version": "1.0.5",
+  "description": "drwine native modules Ping++ , weixin , sina , qq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucifer-cw/drwineModules.git"
+  },
+  "author": "drwine-lucifer",
+  "license": "ISC"
+}
