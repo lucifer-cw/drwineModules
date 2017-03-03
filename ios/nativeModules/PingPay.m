@@ -13,53 +13,21 @@
 
 @synthesize bridge = _bridge;
 
-RCT_EXPORT_MODULE(PingPayModule)
+RCT_EXPORT_MODULE(DRPingPP)
 
-RCT_EXPORT_METHOD(normalPayAction:(NSDictionary*)charge appUrlScheme:(NSString*)schemestr){
-    
-    //第一步，创建URL
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://218.244.151.190/demo/charge"]];
-    //第二步，通过URL创建网络请求
-    NSMutableURLRequest * request = [[NSMutableURLRequest alloc]init];
-    NSDictionary* dict = @{
-                           @"channel" : @"alipay",
-                           @"amount"  : @"1"
-                           };
-    NSData* data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *bodyData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    [request setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
-    [request setHTTPMethod:@"POST"];
-    [request setURL:url]; //设置请求的地址
-    [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
-    NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
-    //    NSData * backData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString* rccharge = [[NSString alloc] initWithData:received encoding:NSUTF8StringEncoding];
-    
-    NSString *jsonString = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    
-    if (!jsonData) {
-        return ;
-    }
-    
-    NSDictionary *datadic = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                            options:NSJSONReadingMutableContainers
-                                                              error:&err];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[datadic objectForKey:@"data"]];
-    dic = [dic objectForKey:@"pingPPcharge"];
-    [dic setValue:@"wx" forKey:@"channel"];
-    
-    [Pingpp createPayment:rccharge appURLScheme:@"wx85405b917ac80b5d" withCompletion:^(NSString *result, PingppError *error) {
-        if (error == nil) {
-            NSLog(@"PingppError is nil");
+RCT_EXPORT_METHOD(createPayment:(id)charge appUrlScheme:(NSString*)schemestr callBack:(RCTResponseSenderBlock)callback){
+        
+    [Pingpp createPayment:charge appURLScheme:schemestr withCompletion:^(NSString *result, PingppError *error) {
+        if ([result isEqualToString:@"success"]) {
+            // 支付成功
+            if(callback){
+                callback(@[@"ok"]);
+            }
         } else {
-            NSLog(@"PingppError: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
+            // 支付失败或取消
+            if(callback){
+                callback(@[[NSString stringWithFormat:@"%i",error.code],[error getMsg]]);
+            }
         }
     }];
 }

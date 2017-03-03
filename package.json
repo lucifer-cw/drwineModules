@@ -1,15 +1,84 @@
 {
-  "name": "react-native-drwine",
-  "version": "1.0.5",
-  "description": "drwine native modules Ping++ , weixin , sina , qq",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "raw": "react-native-drwine",
+        "scope": null,
+        "escapedName": "react-native-drwine",
+        "name": "react-native-drwine",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/yipinxiaoniu/Documents/drwineApp"
+    ]
+  ],
+  "_from": "react-native-drwine@latest",
+  "_id": "react-native-drwine@1.0.5",
+  "_inCache": true,
+  "_location": "/react-native-drwine",
+  "_nodeVersion": "6.2.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-drwine-1.0.5.tgz_1487666768344_0.6044075922109187"
   },
+  "_npmUser": {
+    "name": "drwine-lucifer",
+    "email": "398403854@qq.com"
+  },
+  "_npmVersion": "4.1.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-drwine",
+    "scope": null,
+    "escapedName": "react-native-drwine",
+    "name": "react-native-drwine",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-drwine/-/react-native-drwine-1.0.5.tgz",
+  "_shasum": "e007b885ffcc9bafe39896b38df68adcd6d662ef",
+  "_shrinkwrap": null,
+  "_spec": "react-native-drwine",
+  "_where": "/Users/yipinxiaoniu/Documents/drwineApp",
+  "author": {
+    "name": "drwine-lucifer"
+  },
+  "bugs": {
+    "url": "https://github.com/lucifer-cw/drwineModules/issues"
+  },
+  "dependencies": {},
+  "description": "drwine native modules Ping++ , weixin , sina , qq",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "e007b885ffcc9bafe39896b38df68adcd6d662ef",
+    "tarball": "https://registry.npmjs.org/react-native-drwine/-/react-native-drwine-1.0.5.tgz"
+  },
+  "gitHead": "678c99444b6a38ac48fa02f2950a10f6bb0b3084",
+  "homepage": "https://github.com/lucifer-cw/drwineModules#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "drwine-lucifer",
+      "email": "398403854@qq.com"
+    }
+  ],
+  "name": "react-native-drwine",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucifer-cw/drwineModules.git"
   },
-  "author": "drwine-lucifer",
-  "license": "ISC"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.0"
 }
