@@ -28,16 +28,19 @@ $(SRCROOT)/../node_modules/react-native-drwine/ios/OauthSDK
 # android DRPingPP 配置
 
 1.android/settings.gradle  中添加
-include ':react-native-drwine'
-project(':react-native-drwine').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-drwine/android')
+> include ':react-native-drwine'
+> project(':react-native-drwine').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-drwine/android')
 
 2.app/build.gradle
+```java
 dependencies {
 compile project(':react-native-vector-icons')
 compile project(':react-native-drwine')
 }
+```
 
 3.app/src/main/java/com/drwine/android
+```java
 import android.yml.com.pingpaymodule.ExampleReactPackage;
 protected List<ReactPackage> getPackages() {
 return Arrays.<ReactPackage>asList(
@@ -45,9 +48,11 @@ new MainReactPackage(),
 new ExampleReactPackage()
 );
 }
+```
 
 
 #-- DRPingPP 使用
+```javascript
 import {DRPingPP} from 'react-native-drwine';
 DRPingPP.createPayment({charge}, 'appid/scheme',(err)=>{
 if(err){
@@ -56,6 +61,7 @@ Alert.alert('支付失败'+err);
 Alert.alert('支付成功'+err);
 }
 });
+```
 
 *appid:
 *scheme:URL Scheme，支付宝渠道回调需要
